@@ -7235,7 +7235,7 @@ PrefabInstance:
     - target: {fileID: 2347563021115356372, guid: 17839c8a809f1d341bbaa5d3cfe46d05,
         type: 3}
       propertyPath: _damage
-      value: 20
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 2347563021922900722, guid: 17839c8a809f1d341bbaa5d3cfe46d05,
         type: 3}

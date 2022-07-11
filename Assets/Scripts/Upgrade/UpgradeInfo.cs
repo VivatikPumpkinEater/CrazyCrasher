@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "UpgradeLvlsAndCoast", menuName = "UpgradeInfo")]
+[CreateAssetMenu(fileName = "UpgradeLvlsAndCost", menuName = "UpgradeInfo")]
 public class UpgradeInfo : ScriptableObject
 {
     [field: SerializeField] public List<LengthLvl> LengthLvls = new List<LengthLvl>();
@@ -15,24 +15,24 @@ public class UpgradeInfo : ScriptableObject
 public struct LengthLvl
 {
     public CrasherController Crasher;
-    public int CoastUpgrade;
+    public int CostUpgrade;
 }
 [System.Serializable]
 public struct FuelLvl
 {
     public float Volume;
-    public int CoastUpgrade;
+    public int CostUpgrade;
 }
 [System.Serializable]
 public struct PowerLvl
 {
     public int SpeedMotor;
     public int Damage;
-    public int CoastUpgrade;
+    public int CostUpgrade;
 }
 [System.Serializable]
 public struct SizeLvl
 {
     public Vector3 StepSize;
-    public int CoastUpgrade;
+    public int CostUpgrade;
 }
