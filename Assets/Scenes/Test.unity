@@ -7234,8 +7234,8 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2347563021115356372, guid: 17839c8a809f1d341bbaa5d3cfe46d05,
         type: 3}
-      propertyPath: _damage
-      value: 15
+      propertyPath: _power
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 2347563021922900722, guid: 17839c8a809f1d341bbaa5d3cfe46d05,
         type: 3}
@@ -7260,7 +7260,7 @@ PrefabInstance:
     - target: {fileID: 2347563021922900732, guid: 17839c8a809f1d341bbaa5d3cfe46d05,
         type: 3}
       propertyPath: m_Name
-      value: Crasher
+      value: CrasherManager
       objectReference: {fileID: 0}
     - target: {fileID: 2347563021922900733, guid: 17839c8a809f1d341bbaa5d3cfe46d05,
         type: 3}

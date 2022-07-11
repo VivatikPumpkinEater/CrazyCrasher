@@ -16,5 +16,16 @@ public class SawController : MonoBehaviour
     {
         _saw.Damage = _damage;
     }
+    
+    private void Update()
+    {
+        transform.Rotate(new Vector3(0, 0, -_power * Time.deltaTime));
+    }
+
+    public void LevelUp(float power, float damage)
+    {
+        _power = power;
+        _damage = damage;
+    }
 
 }

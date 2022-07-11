@@ -54,9 +54,9 @@ MonoBehaviour:
   - {fileID: 919132148803786110, guid: abc6beb56b1efd94f9a5f16fc9df0e8f, type: 3}
   - {fileID: 919132148323945750, guid: d302e5c5fd3b99e408aab15e8fd895d1, type: 3}
   _fuel: {fileID: 0}
-  _crasherPlace: {fileID: 2347563021922900733}
   _currentCrasher: {fileID: 0}
   _upgradeButtons: {fileID: 0}
+  _upgradeInfo: {fileID: 11400000, guid: 969d54f10fed37149bb5d1e99eb57764, type: 2}
   _joystick: {fileID: 0}
   _cinemachineVirtualCamera: {fileID: 0}
 --- !u!1 &2347563021940606149
@@ -160,6 +160,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 2347563021922900733}
     m_Modifications:
     - target: {fileID: 1341813902, guid: 587a3dda9c6655b4c88d2cc6f7bf2f1b, type: 3}
+      propertyPath: _damage
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1341813902, guid: 587a3dda9c6655b4c88d2cc6f7bf2f1b, type: 3}
       propertyPath: _sizeStep.x
       value: 0.005
       objectReference: {fileID: 0}
@@ -231,7 +235,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8052750705211285522, guid: 587a3dda9c6655b4c88d2cc6f7bf2f1b, type: 3}
+    - {fileID: 7163579711657283980, guid: 587a3dda9c6655b4c88d2cc6f7bf2f1b, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 587a3dda9c6655b4c88d2cc6f7bf2f1b, type: 3}
 --- !u!4 &1360767856177403181 stripped
 Transform:

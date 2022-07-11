@@ -13,6 +13,9 @@ MonoBehaviour:
   m_Name: LvlsAndCoast
   m_EditorClassIdentifier: 
   LengthLvls:
+  - Crasher: {fileID: 5357920503027514646, guid: 048a3954b9a8dc045ad7ed935c4a2bb3,
+      type: 3}
+    CostUpgrade: 0
   - Crasher: {fileID: 5286691421075046883, guid: 0d8577d996e0f414388a2bb74642d101,
       type: 3}
     CostUpgrade: 500
@@ -45,16 +48,16 @@ MonoBehaviour:
     CostUpgrade: 850
   PowerLvls:
   - SpeedMotor: 200
-    Damage: 10
+    Damage: 8
     CostUpgrade: 150
   - SpeedMotor: 300
-    Damage: 15
+    Damage: 12
     CostUpgrade: 450
   - SpeedMotor: 400
-    Damage: 20
+    Damage: 15
     CostUpgrade: 1000
   - SpeedMotor: 500
-    Damage: 25
+    Damage: 20
     CostUpgrade: 1600
   SizeLvls:
   - StepSize: {x: 0.002, y: 0.002, z: 0.002}
