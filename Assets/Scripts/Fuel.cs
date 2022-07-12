@@ -8,13 +8,23 @@ public class Fuel : MonoBehaviour
 {
     [SerializeField] private float _duration = 50f;
     private float _fuel = 0;
-    private bool _gameOver = false;
+    private bool _game = false;
 
     private Image _image = null;
 
     private Image _fuelStats
     {
         get => _image = _image ?? GetComponent<Image>();
+    }
+
+    private void Start()
+    {
+        UIManager.Instance.StartGame += StartFuel;
+    }
+
+    private void StartFuel()
+    {
+        _game = true;
     }
 
     public void SetFuel(float value)
@@ -27,7 +37,7 @@ public class Fuel : MonoBehaviour
 
     private void Update()
     {
-        if (!_gameOver)
+        if (_game)
         {
             _fuel -= Time.deltaTime;
 
@@ -35,7 +45,7 @@ public class Fuel : MonoBehaviour
 
             if (_fuelStats.fillAmount <= 0)
             {
-                _gameOver = true;
+                _game = false;
                 Debug.Log("GameOver");
             }
         }

@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &248297873
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 248297874}
+  m_Layer: 0
+  m_Name: CrasherPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &248297874
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 248297873}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.37, y: -2.35, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 2347563021940606170}
+  m_Father: {fileID: 2347563021922900733}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2347563021922900732
 GameObject:
   m_ObjectHideFlags: 0
@@ -28,7 +59,7 @@ Transform:
   m_LocalPosition: {x: -3.54, y: -0.44, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children:
-  - {fileID: 2347563021940606170}
+  - {fileID: 248297874}
   - {fileID: 1360767856177403181}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -46,13 +77,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _saw: {fileID: 2347563021115356372}
-  _sizeStep: {x: 0.001, y: 0.001, z: 0.001}
-  _crashersLvl:
-  - {fileID: 5357920503027514646, guid: 048a3954b9a8dc045ad7ed935c4a2bb3, type: 3}
-  - {fileID: 5286691421075046883, guid: 0d8577d996e0f414388a2bb74642d101, type: 3}
-  - {fileID: 1202579495, guid: c23b4871d0fda704ea8692cfdaaa1f1c, type: 3}
-  - {fileID: 919132148803786110, guid: abc6beb56b1efd94f9a5f16fc9df0e8f, type: 3}
-  - {fileID: 919132148323945750, guid: d302e5c5fd3b99e408aab15e8fd895d1, type: 3}
+  _crasherPos: {fileID: 2347563021940606170}
   _fuel: {fileID: 0}
   _currentCrasher: {fileID: 0}
   _upgradeButtons: {fileID: 0}
@@ -70,7 +95,6 @@ GameObject:
   - component: {fileID: 2347563021940606170}
   - component: {fileID: 2347563021940606169}
   - component: {fileID: 2347563021940606168}
-  - component: {fileID: 2347563021940606171}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: Untagged
@@ -86,10 +110,10 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2347563021940606149}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.5000001, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 4, y: 4, z: 4}
   m_Children: []
-  m_Father: {fileID: 2347563021922900733}
+  m_Father: {fileID: 248297874}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2347563021940606169
@@ -139,19 +163,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!135 &2347563021940606171
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2347563021940606149}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &2347563022141489242
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -159,6 +170,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2347563021922900733}
     m_Modifications:
+    - target: {fileID: 1341813902, guid: 587a3dda9c6655b4c88d2cc6f7bf2f1b, type: 3}
+      propertyPath: _power
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 1341813902, guid: 587a3dda9c6655b4c88d2cc6f7bf2f1b, type: 3}
       propertyPath: _damage
       value: 5

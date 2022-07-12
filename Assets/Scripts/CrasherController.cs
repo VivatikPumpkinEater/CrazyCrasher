@@ -2,10 +2,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Animations.Rigging;
 
 public class CrasherController : MonoBehaviour
 {
     [SerializeField] private float _speed = 5f;
+
+    [SerializeField] private Rig _crasherRig = null;
     
     [SerializeField] private Transform _target = null;
     [SerializeField] private Transform _targetHome = null;
@@ -18,18 +21,14 @@ public class CrasherController : MonoBehaviour
         set => _joystick = value;
     }
 
-    public Transform SawPosition
-    {
-        get => _targetHome;
-    }
+    public Rig CrasherRig => _crasherRig;
+
+    public Transform SawPosition => _targetHome;
 
     private Rigidbody _rigidbody = null;
 
-    private Rigidbody _rb
-    {
-        get => _rigidbody = _rigidbody ?? _target.GetComponent<Rigidbody>();
-    }
-    
+    private Rigidbody _rb => _rigidbody = _rigidbody ? _rigidbody : _target.GetComponent<Rigidbody>();
+
     private void Start()
     {
         _joystick.FingerUp += ResetTarget;

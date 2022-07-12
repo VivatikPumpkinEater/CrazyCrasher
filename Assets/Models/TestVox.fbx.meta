@@ -3,7 +3,37 @@ guid: 06e2e9dee4ed89140913029a43801193
 ModelImporter:
   serializedVersion: 19301
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Voxel_mat139
+    second: {fileID: 2100000, guid: f728e31c43751e94883c45c755baab76, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Voxel_mat181
+    second: {fileID: 2100000, guid: f728e31c43751e94883c45c755baab76, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Voxel_mat229
+    second: {fileID: 2100000, guid: f728e31c43751e94883c45c755baab76, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Voxel_mat4
+    second: {fileID: 2100000, guid: f728e31c43751e94883c45c755baab76, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Voxel_mat6
+    second: {fileID: 2100000, guid: f728e31c43751e94883c45c755baab76, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Voxel_mat79
+    second: {fileID: 2100000, guid: f728e31c43751e94883c45c755baab76, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0

@@ -59,6 +59,9 @@ MonoBehaviour:
   - SpeedMotor: 500
     Damage: 20
     CostUpgrade: 1600
+  - SpeedMotor: 600
+    Damage: 35
+    CostUpgrade: 2500
   SizeLvls:
   - StepSize: {x: 0.002, y: 0.002, z: 0.002}
     CostUpgrade: 150

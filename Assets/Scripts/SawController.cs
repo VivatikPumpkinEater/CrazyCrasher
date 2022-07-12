@@ -26,6 +26,8 @@ public class SawController : MonoBehaviour
     {
         _power = power;
         _damage = damage;
+        
+        _saw.Damage = _damage;
     }
 
 }
