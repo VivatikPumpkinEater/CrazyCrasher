@@ -62,15 +62,6 @@ public class CrasherController : MonoBehaviour
 
     private void OnDestroy()
     {
-        Debug.Log("Unsubscribe");
         _joystick.FingerUp -= ResetTarget;
     }
-
-    /*private void OnCollisionEnter(Collision collision)
-    {
-        Vector2 direction = collision.collider.transform.position - transform.position;
-        direction.Normalize();
-        
-        _rb.AddForce(direction * 10f, ForceMode.Impulse);
-    }*/
 }

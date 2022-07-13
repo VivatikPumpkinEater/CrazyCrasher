@@ -61,4 +61,15 @@ public class Fuel : MonoBehaviour
             }
         }
     }
+
+    private void OnApplicationQuit()
+    {
+        Unsubscribe();
+    }
+
+    private void Unsubscribe()
+    {
+        UIManager.Instance.StartGame -= StartFuel;
+        UIManager.Instance.EndGame -= ResetFuel;
+    }
 }

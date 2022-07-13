@@ -7,6 +7,8 @@ public class VoxSettings : MonoBehaviour
     [SerializeField] private List<Transform> _micros = new List<Transform>();
     [SerializeField] private List<Material> _materials = new List<Material>();
 
+    public int CellsCount => _micros.Count;
+
     [ContextMenu("ResetRotation")]
     private void ResetRotation()
     {

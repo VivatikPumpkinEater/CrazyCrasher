@@ -10,6 +10,8 @@ public class SpawnerVoxModels : MonoBehaviour
     [SerializeField] private VoxSettings _currentModel = null;
     [SerializeField] private VoxSettings _prefabModel = null;
 
+    public VoxSettings CurrentModel => _currentModel;
+
     private void Awake()
     {
         if (Instance != null)

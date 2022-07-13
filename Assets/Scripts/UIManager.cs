@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
@@ -13,6 +14,7 @@ public class UIManager : MonoBehaviour
     [Header("Screens")] [SerializeField] private GameObject _upgradeScreen = null;
     [SerializeField] private GameObject _gameScreen = null;
     [SerializeField] private UIGameOver _gameOver = null;
+    [SerializeField] private GameObject _winGame = null;
 
     [SerializeField] private TMP_Text _walletTxt = null;
 
@@ -26,6 +28,7 @@ public class UIManager : MonoBehaviour
     public System.Action EndGame;
 
     private Vector2 _screePixelSize;
+    private Vector3 _defaultScreenPos;
 
     private void Awake()
     {
@@ -43,15 +46,25 @@ public class UIManager : MonoBehaviour
         _joystick.gameObject.SetActive(false);
         _gameScreen.SetActive(false);
 
-        _screePixelSize = new Vector2(Camera.main.pixelWidth, Camera.main.pixelHeight);
-        _gameOver.transform.position =  new Vector3(_screePixelSize.x * 1.5f, _screePixelSize.y / 2, 0);
-
         LoadSave();
     }
 
     private void Start()
     {
         GameManager.Instance.MoneyTrans += UpdateWallet;
+        LvlStatus.Instance.WinGame += Win;
+        
+        InitializedScreens();
+    }
+
+    private void InitializedScreens()
+    {
+        _screePixelSize = new Vector2(Camera.main.pixelWidth, Camera.main.pixelHeight);
+        
+        _defaultScreenPos = new Vector3(_screePixelSize.x * 1.5f, _screePixelSize.y / 2, 0);
+
+        _gameOver.transform.position = _defaultScreenPos;
+        _winGame.transform.position = _defaultScreenPos;
     }
 
     private void LoadSave()
@@ -118,6 +131,15 @@ public class UIManager : MonoBehaviour
         MovingGameOverScreen();
     }
 
+    private void Win()
+    {
+        _winGame.transform.DOMoveX(_screePixelSize.x / 2, 1f)
+            .OnComplete(() =>
+            {
+                SceneManager.LoadScene(0);
+            });
+    }
+
     private void MovingGameOverScreen()
     {
         _gameOver.transform.DOMoveX(_screePixelSize.x / 2, 1f)
@@ -128,7 +150,18 @@ public class UIManager : MonoBehaviour
                 ResetGameElement();
                 _gameOver.transform.DOMoveX(_screePixelSize.x / 2 * -1, 1f)
                     .OnComplete(() =>
-                        _gameOver.transform.position = new Vector3(_screePixelSize.x * 1.5f, _screePixelSize.y / 2, 0));
+                        _gameOver.transform.position = _defaultScreenPos);
             });
+    }
+
+    private void OnApplicationQuit()
+    {
+        Unsubscribe();
+    }
+
+    private void Unsubscribe()
+    {
+        GameManager.Instance.MoneyTrans -= UpdateWallet;
+        LvlStatus.Instance.WinGame -= Win;
     }
 }

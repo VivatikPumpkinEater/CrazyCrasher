@@ -34,6 +34,10 @@ public class HealthManager : MonoBehaviour
 
     private void Die()
     {
+        _die = true;
+        
+        LvlStatus.Instance.ProgressLvl();
+        
         gameObject.layer = LayerMask.NameToLayer("Unconnected");
         _rb.isKinematic = false;
     }

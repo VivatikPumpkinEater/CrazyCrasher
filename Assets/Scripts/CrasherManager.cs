@@ -99,81 +99,89 @@ public class CrasherManager : MonoBehaviour
 
     private void UpgradeSize()
     {
-        if (_sizeLvl + 1 != _upgradeInfo.SizeLvls.Count &&
+        if (_sizeLvl != _upgradeInfo.SizeLvls.Count &&
             GameManager.Instance.SpendMoney(_upgradeInfo.SizeLvls[_sizeLvl].CostUpgrade))
         {
             _saw.transform.DOScale(_saw.transform.localScale + _upgradeInfo.SizeLvls[_sizeLvl].StepSize, 0.2f);
             _sizeLvl++;
-
-            _upgradeButtons.CostSize.text = _upgradeInfo.SizeLvls[_sizeLvl].CostUpgrade.ToString() + "$";
         }
 
-        if (_sizeLvl == _upgradeInfo.SizeLvls.Count - 1)
+        if (_sizeLvl == _upgradeInfo.SizeLvls.Count)
         {
             Debug.Log("MaxLvlSize");
             _upgradeButtons.UpgradeSize.interactable = false;
 
             _upgradeButtons.CostSize.text = "Max Lvl";
         }
+        else
+        {
+            _upgradeButtons.CostSize.text = _upgradeInfo.SizeLvls[_sizeLvl].CostUpgrade.ToString() + "$";
+        }
     }
 
     private void UpgradeFuel()
     {
-        if (_fuelLvl + 1 != _upgradeInfo.FuelLvls.Count &&
+        if (_fuelLvl != _upgradeInfo.FuelLvls.Count &&
             GameManager.Instance.SpendMoney(_upgradeInfo.FuelLvls[_fuelLvl].CostUpgrade))
         {
             _fuel.SetFuel(_upgradeInfo.FuelLvls[_fuelLvl].Volume);
             
             _fuelLvl++;
-
-            _upgradeButtons.CostFuel.text = _upgradeInfo.FuelLvls[_fuelLvl].CostUpgrade.ToString() + "$";
         }
 
-        if (_fuelLvl == _upgradeInfo.FuelLvls.Count - 1)
+        if (_fuelLvl == _upgradeInfo.FuelLvls.Count)
         {
             Debug.Log("MaxLvlFuel");
             _upgradeButtons.UpgradeFuel.interactable = false;
 
             _upgradeButtons.CostFuel.text = "Max Lvl";
         }
+        else
+        {
+            _upgradeButtons.CostFuel.text = _upgradeInfo.FuelLvls[_fuelLvl].CostUpgrade.ToString() + "$";
+        }
     }
 
     private void UpgradePower()
     {
-        if (_powerLvl + 1 != _upgradeInfo.PowerLvls.Count &&
+        if (_powerLvl != _upgradeInfo.PowerLvls.Count &&
             GameManager.Instance.SpendMoney(_upgradeInfo.PowerLvls[_powerLvl].CostUpgrade))
         {
             _saw.LevelUp(_upgradeInfo.PowerLvls[_powerLvl].SpeedMotor, _upgradeInfo.PowerLvls[_powerLvl].Damage);
             _powerLvl++;
-
-            _upgradeButtons.CostPower.text = _upgradeInfo.PowerLvls[_powerLvl].CostUpgrade.ToString() + "$";
         }
 
-        if (_powerLvl == _upgradeInfo.PowerLvls.Count - 1)
+        if (_powerLvl == _upgradeInfo.PowerLvls.Count)
         {
             Debug.Log("MaxLvlPower");
             _upgradeButtons.UpgradePower.interactable = false;
 
             _upgradeButtons.CostPower.text = "Max Lvl";
         }
+        else
+        {
+            _upgradeButtons.CostPower.text = _upgradeInfo.PowerLvls[_powerLvl].CostUpgrade.ToString() + "$";
+        }
     }
 
     private void UpgradeCrasher()
     {
-        if (_lengthLvl + 1 != _upgradeInfo.LengthLvls.Count &&
+        if (_lengthLvl != _upgradeInfo.LengthLvls.Count &&
             GameManager.Instance.SpendMoney(_upgradeInfo.LengthLvls[_lengthLvl].CostUpgrade))
         {
             SpawnCrasher();
-
-            _upgradeButtons.CostLength.text = _upgradeInfo.LengthLvls[_lengthLvl].CostUpgrade.ToString() + "$";
         }
 
-        if (_lengthLvl == _upgradeInfo.LengthLvls.Count - 1)
+        if (_lengthLvl == _upgradeInfo.LengthLvls.Count)
         {
             Debug.Log("MaxLvlLength");
             _upgradeButtons.UpgradeLength.interactable = false;
 
             _upgradeButtons.CostLength.text = "Max Lvl";
+        }
+        else
+        {
+            _upgradeButtons.CostLength.text = _upgradeInfo.LengthLvls[_lengthLvl].CostUpgrade.ToString() + "$";
         }
     }
 
@@ -197,6 +205,17 @@ public class CrasherManager : MonoBehaviour
         _crasherRig = _currentCrasher.CrasherRig;
 
         _lengthLvl++;
+    }
+    
+    private void OnApplicationQuit()
+    {
+        Unsubscribe();
+    }
+
+    private void Unsubscribe()
+    {
+        UIManager.Instance.StartGame -= StartGame;
+        UIManager.Instance.EndGame -= EndGame;
     }
 }
 

@@ -37,6 +37,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         UIManager.Instance.EndGame += ResetMoneySession;
+        LvlStatus.Instance.WinGame += SaveMoney;
     }
 
     private void ResetMoneySession()
@@ -71,5 +72,16 @@ public class GameManager : MonoBehaviour
     private void SaveMoney()
     {
         PlayerPrefs.SetInt("Wallet", _wallet);
+    }
+
+    private void OnApplicationQuit()
+    {
+        Unsubscribe();
+    }
+
+    private void Unsubscribe()
+    {
+        UIManager.Instance.EndGame -= ResetMoneySession;
+        LvlStatus.Instance.WinGame -= SaveMoney;
     }
 }
