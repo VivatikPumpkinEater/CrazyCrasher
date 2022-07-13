@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class Converter : MonoBehaviour
 {
@@ -22,6 +23,8 @@ public class Converter : MonoBehaviour
     private void SpawnCoins()
     {
         var coin = Instantiate(_coinsPrefab, _spawnCoinsPoint.position, Quaternion.identity);
+        
+        GameManager.Instance.AddMoney(Random.Range(1, 11));
         
         Destroy(coin, 2f);
     }

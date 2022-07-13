@@ -99,7 +99,8 @@ public class CrasherManager : MonoBehaviour
 
     private void UpgradeSize()
     {
-        if (_sizeLvl + 1 != _upgradeInfo.SizeLvls.Count)
+        if (_sizeLvl + 1 != _upgradeInfo.SizeLvls.Count &&
+            GameManager.Instance.SpendMoney(_upgradeInfo.SizeLvls[_sizeLvl].CostUpgrade))
         {
             _saw.transform.DOScale(_saw.transform.localScale + _upgradeInfo.SizeLvls[_sizeLvl].StepSize, 0.2f);
             _sizeLvl++;
@@ -118,7 +119,8 @@ public class CrasherManager : MonoBehaviour
 
     private void UpgradeFuel()
     {
-        if (_fuelLvl + 1 != _upgradeInfo.FuelLvls.Count)
+        if (_fuelLvl + 1 != _upgradeInfo.FuelLvls.Count &&
+            GameManager.Instance.SpendMoney(_upgradeInfo.FuelLvls[_fuelLvl].CostUpgrade))
         {
             _fuelLvl++;
 
@@ -136,7 +138,8 @@ public class CrasherManager : MonoBehaviour
 
     private void UpgradePower()
     {
-        if (_powerLvl + 1 != _upgradeInfo.PowerLvls.Count)
+        if (_powerLvl + 1 != _upgradeInfo.PowerLvls.Count &&
+            GameManager.Instance.SpendMoney(_upgradeInfo.PowerLvls[_powerLvl].CostUpgrade))
         {
             _saw.LevelUp(_upgradeInfo.PowerLvls[_powerLvl].SpeedMotor, _upgradeInfo.PowerLvls[_powerLvl].Damage);
             _powerLvl++;
@@ -155,7 +158,8 @@ public class CrasherManager : MonoBehaviour
 
     private void UpgradeCrasher()
     {
-        if (_lengthLvl + 1 != _upgradeInfo.LengthLvls.Count)
+        if (_lengthLvl + 1 != _upgradeInfo.LengthLvls.Count &&
+            GameManager.Instance.SpendMoney(_upgradeInfo.LengthLvls[_lengthLvl].CostUpgrade))
         {
             SpawnCrasher();
 

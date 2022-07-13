@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,6 +12,8 @@ public class UIManager : MonoBehaviour
     [Header("Screens")]
     [SerializeField] private GameObject _upgradeScreen = null;
     [SerializeField] private GameObject _gameScreen = null;
+
+    [SerializeField] private TMP_Text _walletTxt = null;
 
     [Header("Buttons")] [SerializeField] private Button _back = null;
     [SerializeField] private Button _settings = null;
@@ -36,6 +39,25 @@ public class UIManager : MonoBehaviour
         
         _joystick.gameObject.SetActive(false);
         _gameScreen.SetActive(false);
+    }
+
+    private void Start()
+    {
+        GameManager.Instance.MoneyTrans += UpdateWallet;
+    }
+
+    private void UpdateWallet(int money)
+    {
+        if (money >= 1000)
+        {
+            float moneyf = money / 1000f;
+
+            _walletTxt.text = moneyf.ToString("#.#") + "k$";
+        }
+        else
+        {
+            _walletTxt.text = money.ToString() + "$";
+        }
     }
 
     private void Back()
