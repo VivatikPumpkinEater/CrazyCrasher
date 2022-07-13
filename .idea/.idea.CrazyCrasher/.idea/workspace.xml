@@ -15,6 +15,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Saw.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/SawController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/SpawnerVoxModels.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/UIGameOver.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UIManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Upgrade/UpgradeInfo.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UpgradeButtons.cs" root0="FORCE_HIGHLIGHTING" />
@@ -77,7 +78,7 @@
       <updated>1657452378332</updated>
       <workItem from="1657452385397" duration="3231000" />
       <workItem from="1657465438573" duration="42758000" />
-      <workItem from="1657701550775" duration="2664000" />
+      <workItem from="1657701550775" duration="10234000" />
     </task>
     <servers />
   </component>

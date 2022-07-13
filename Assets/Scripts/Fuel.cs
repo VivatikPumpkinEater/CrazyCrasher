@@ -10,6 +10,8 @@ public class Fuel : MonoBehaviour
     private float _fuel = 0;
     private bool _game = false;
 
+    private float _currentFuel = 0;
+
     private Image _image = null;
 
     private Image _fuelStats
@@ -20,6 +22,7 @@ public class Fuel : MonoBehaviour
     private void Start()
     {
         UIManager.Instance.StartGame += StartFuel;
+        UIManager.Instance.EndGame += ResetFuel;
     }
 
     private void StartFuel()
@@ -27,12 +30,17 @@ public class Fuel : MonoBehaviour
         _game = true;
     }
 
+    private void ResetFuel()
+    {
+        _game = false;
+        SetFuel(_currentFuel);
+    }
+
     public void SetFuel(float value)
     {
+        _currentFuel = value;
         _fuelStats.fillAmount = value;
         _fuel = value * _duration;
-        
-        Debug.Log("StartFuel");
     }
 
     private void Update()
@@ -46,7 +54,10 @@ public class Fuel : MonoBehaviour
             if (_fuelStats.fillAmount <= 0)
             {
                 _game = false;
+
                 Debug.Log("GameOver");
+                
+                UIManager.Instance.GameOver();
             }
         }
     }

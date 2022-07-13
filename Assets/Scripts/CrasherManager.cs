@@ -122,6 +122,8 @@ public class CrasherManager : MonoBehaviour
         if (_fuelLvl + 1 != _upgradeInfo.FuelLvls.Count &&
             GameManager.Instance.SpendMoney(_upgradeInfo.FuelLvls[_fuelLvl].CostUpgrade))
         {
+            _fuel.SetFuel(_upgradeInfo.FuelLvls[_fuelLvl].Volume);
+            
             _fuelLvl++;
 
             _upgradeButtons.CostFuel.text = _upgradeInfo.FuelLvls[_fuelLvl].CostUpgrade.ToString() + "$";
