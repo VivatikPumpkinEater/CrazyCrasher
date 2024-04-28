@@ -91,35 +91,6 @@ public class UIManager : MonoBehaviour
         _gameScreen.SetActive(false);
 
         LoadSave();
-        
-        CCMUSICTxt.text = "Music\n";
-        var ccstatus = PlayerPrefs.GetString("CCMSC", "ON");
-        if (ccstatus == "OFF")
-        {
-            CCMUSICTxt.text += "<color=red>OFF</color>";
-            CCMUSIC.mute = true;
-        }
-        else
-        {
-            CCMUSICTxt.text += "<color=green>ON</color>";
-            CCMUSIC.mute = false;
-        }
-        
-        CCSOUNDTxt.text = "Sounds\n";
-        var ccsndstatus = PlayerPrefs.GetString("CCSND", "ON");
-        if (ccsndstatus == "OFF")
-        {
-            CCSOUNDTxt.text += "<color=red>OFF</color>";
-            CCSounds.mute = true;
-        }
-        else
-        {
-            CCSOUNDTxt.text += "<color=green>ON</color>";
-            CCSounds.mute = false;
-        }
-        
-        CCSOUNDBTN.onClick.AddListener(CCCHANGESounds);
-        CCMUSICBTN.onClick.AddListener(CCCHANGEMusic);
     }
 
     private void CCCHANGEMusic()
@@ -167,6 +138,35 @@ public class UIManager : MonoBehaviour
         LvlStatus.Instance.WinGame += Win;
         
         InitializedScreens();
+        
+        CCMUSICTxt.text = "Music\n";
+        var ccstatus = PlayerPrefs.GetString("CCMSC", "ON");
+        if (ccstatus == "OFF")
+        {
+            CCMUSICTxt.text += "<color=red>OFF</color>";
+            CCMUSIC.mute = true;
+        }
+        else
+        {
+            CCMUSICTxt.text += "<color=green>ON</color>";
+            CCMUSIC.mute = false;
+        }
+        
+        CCSOUNDTxt.text = "Sounds\n";
+        var ccsndstatus = PlayerPrefs.GetString("CCSND", "ON");
+        if (ccsndstatus == "OFF")
+        {
+            CCSOUNDTxt.text += "<color=red>OFF</color>";
+            CCSounds.mute = true;
+        }
+        else
+        {
+            CCSOUNDTxt.text += "<color=green>ON</color>";
+            CCSounds.mute = false;
+        }
+        
+        CCSOUNDBTN.onClick.AddListener(CCCHANGESounds);
+        CCMUSICBTN.onClick.AddListener(CCCHANGEMusic);
     }
 
     private void InitializedScreens()

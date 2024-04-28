@@ -5,27 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="19c3a360-2fc6-47d8-9dc5-3d9acc50b1f6" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.CrazyCrasher/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CrazyCrasher/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GUI PRO Kit - Simple Casual/Sprite/Component/Icon_ItemIcons_(x2)/ItemIcons_(x2).unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GUI PRO Kit - Simple Casual/Sprite/Component/Icon_PictoIcons_(x2)/PictoIcons_(x2).unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/Brick_0.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/Brick_0.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/BrickWall.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/BrickWall.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Test.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Test.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Converter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Converter.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CrasherController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CrasherController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CrasherManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CrasherManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/HealthManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/HealthManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/LvlStatus.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/LvlStatus.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/SpawnerVoxModels.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/SpawnerVoxModels.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/UIManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UIManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Upgrade/UpgradeInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Upgrade/UpgradeInfo.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/VoxSettings.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/VoxSettings.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/BurstAotSettings_Android.json" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/BurstAotSettings_Android.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/BrickCreator.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/BrickCreator.prefab" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -146,7 +128,7 @@
       <workItem from="1657716770916" duration="5067000" />
       <workItem from="1714211509278" duration="3296000" />
       <workItem from="1714221999958" duration="4429000" />
-      <workItem from="1714293607903" duration="5703000" />
+      <workItem from="1714293607903" duration="6547000" />
     </task>
     <servers />
   </component>

@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9058282671185843370}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -48,10 +48,10 @@ MonoBehaviour:
   CCTEXTURE: {fileID: 2800000, guid: 99d473a4666154f4abcd788758f48bb9, type: 3}
   CCTile: {fileID: 6555740430673878652, guid: 8b734893e58efa84d8f2f43004b01982, type: 3}
   CCBrickMaterials:
-  - {fileID: 2100000, guid: 0eab424160230cc4688f5bed3a778a8f, type: 2}
   - {fileID: 2100000, guid: 6b751f6588ad90a4290988d1a67d9e61, type: 2}
   - {fileID: 2100000, guid: 3c848bab8e6549c4cb351385b4c8c053, type: 2}
   CCVoxSettings: {fileID: 2748596655406215539}
+  CCDATAS: []
 --- !u!114 &2748596655406215539
 MonoBehaviour:
   m_ObjectHideFlags: 0
