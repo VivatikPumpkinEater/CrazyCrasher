@@ -51,7 +51,8 @@ public class LvlStatus : MonoBehaviour
             {
                 _winGame = true;
                 
-                Debug.Log("WinGame");
+                UIManager.Instance.CCSFX(CCTYPE.Win);
+                SpawnerVoxModels.Instance.CCCOMPLVL();
                 WinGame?.Invoke();
             }
         }

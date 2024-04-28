@@ -20,15 +20,54 @@ public class UIManager : MonoBehaviour
 
     [Header("Buttons")] [SerializeField] private Button _back = null;
     [SerializeField] private Button _settings = null;
+    [SerializeField] private Button _settingsClose = null;
     [SerializeField] private Button _play = null;
 
     [SerializeField] private Joystick _joystick = null;
+
+    [SerializeField] private CrasherManager CCCM;
+    [SerializeField] private CanvasGroup CCSETTINGS;
+    [SerializeField] private AudioSource CCSounds;
+    [SerializeField] private AudioSource CCMUSIC;
+    
+    [SerializeField] private Button CCSOUNDBTN;
+    [SerializeField] private TMP_Text CCSOUNDTxt;
+    [SerializeField] private Button CCMUSICBTN;
+    [SerializeField] private TMP_Text CCMUSICTxt;
+
+    [SerializeField] private AudioClip CCUpgrade;
+    [SerializeField] private AudioClip CCTimeOut;
+    [SerializeField] private AudioClip CCWin;
+    [SerializeField] private AudioClip CCCoins;
+    [SerializeField] private AudioClip CCDestroy;
 
     public System.Action StartGame;
     public System.Action EndGame;
 
     private Vector2 _screePixelSize;
     private Vector3 _defaultScreenPos;
+
+    public void CCSFX(CCTYPE cctype)
+    {
+        switch (cctype)
+        {
+            case CCTYPE.TimeOut:
+                CCSounds.PlayOneShot(CCTimeOut);
+                break;
+            case CCTYPE.Win:
+                CCSounds.PlayOneShot(CCWin);
+                break;
+            case CCTYPE.Coin:
+                CCSounds.PlayOneShot(CCCoins);
+                break;
+            case CCTYPE.Destroy:
+                CCSounds.PlayOneShot(CCDestroy);
+                break;
+            case CCTYPE.Upgrade:
+                CCSounds.PlayOneShot(CCUpgrade);
+                break;
+        }
+    }
 
     private void Awake()
     {
@@ -37,16 +76,89 @@ public class UIManager : MonoBehaviour
             Destroy(Instance.gameObject);
             Instance = null;
         }
+        
+        CloseSettings();
 
         Instance = this;
 
         _play.onClick.AddListener(PlayGame);
         _back.onClick.AddListener(Back);
+        
+        _settings.onClick.AddListener(OpenSettings);
+        _settingsClose.onClick.AddListener(CloseSettings);
 
         _joystick.gameObject.SetActive(false);
         _gameScreen.SetActive(false);
 
         LoadSave();
+        
+        CCMUSICTxt.text = "Music\n";
+        var ccstatus = PlayerPrefs.GetString("CCMSC", "ON");
+        if (ccstatus == "OFF")
+        {
+            CCMUSICTxt.text += "<color=red>OFF</color>";
+            CCMUSIC.mute = true;
+        }
+        else
+        {
+            CCMUSICTxt.text += "<color=green>ON</color>";
+            CCMUSIC.mute = false;
+        }
+        
+        CCSOUNDTxt.text = "Sounds\n";
+        var ccsndstatus = PlayerPrefs.GetString("CCSND", "ON");
+        if (ccsndstatus == "OFF")
+        {
+            CCSOUNDTxt.text += "<color=red>OFF</color>";
+            CCSounds.mute = true;
+        }
+        else
+        {
+            CCSOUNDTxt.text += "<color=green>ON</color>";
+            CCSounds.mute = false;
+        }
+        
+        CCSOUNDBTN.onClick.AddListener(CCCHANGESounds);
+        CCMUSICBTN.onClick.AddListener(CCCHANGEMusic);
+    }
+
+    private void CCCHANGEMusic()
+    {
+        CCMUSICTxt.text = "Music\n";
+
+        var ccstatus = PlayerPrefs.GetString("CCMSC", "ON");
+
+        if (ccstatus == "ON")
+        {
+            CCMUSICTxt.text += "<color=red>OFF</color>";
+            CCMUSIC.mute = true;
+            PlayerPrefs.SetString("CCMSC", "OFF");
+        }
+        else
+        {
+            CCMUSICTxt.text += "<color=green>ON</color>";
+            CCMUSIC.mute = false;
+            PlayerPrefs.SetString("CCMSC", "ON");
+        }
+    }
+    
+    private void CCCHANGESounds()
+    {
+        CCSOUNDTxt.text = "Sounds\n";
+        
+        var ccstatus = PlayerPrefs.GetString("CCSND", "ON");
+        if (ccstatus == "ON")
+        {
+            CCSOUNDTxt.text += "<color=red>OFF</color>";
+            CCSounds.mute = true;
+            PlayerPrefs.SetString("CCSND", "OFF");
+        }
+        else
+        {
+            CCSOUNDTxt.text += "<color=green>ON</color>";
+            CCSounds.mute = false;
+            PlayerPrefs.SetString("CCSND", "ON");
+        }
     }
 
     private void Start()
@@ -112,6 +224,16 @@ public class UIManager : MonoBehaviour
 
     private void OpenSettings()
     {
+        CCSETTINGS.alpha = 1f;
+        CCSETTINGS.interactable = true;
+        CCSETTINGS.blocksRaycasts = true;
+    }
+    
+    private void CloseSettings()
+    {
+        CCSETTINGS.alpha = 0f;
+        CCSETTINGS.interactable = false;
+        CCSETTINGS.blocksRaycasts = false;
     }
 
     private void PlayGame()
@@ -125,8 +247,8 @@ public class UIManager : MonoBehaviour
 
     public void GameOver()
     {
+        CCSFX(CCTYPE.TimeOut);
         _gameOver.GameOver(true, GameManager.Instance.MoneySession);
-        
         
         MovingGameOverScreen();
     }
@@ -136,6 +258,7 @@ public class UIManager : MonoBehaviour
         _winGame.transform.DOMoveX(_screePixelSize.x / 2, 1f)
             .OnComplete(() =>
             {
+                CCCM.CCRESETSave();
                 SceneManager.LoadScene(0);
             });
     }
@@ -164,4 +287,13 @@ public class UIManager : MonoBehaviour
         GameManager.Instance.MoneyTrans -= UpdateWallet;
         LvlStatus.Instance.WinGame -= Win;
     }
+}
+
+public enum CCTYPE
+{
+    TimeOut,
+    Win,
+    Coin,
+    Destroy,
+    Upgrade
 }

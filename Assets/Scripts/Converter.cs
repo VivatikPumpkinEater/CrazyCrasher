@@ -22,6 +22,8 @@ public class Converter : MonoBehaviour
 
     private void SpawnCoins()
     {
+        UIManager.Instance.CCSFX(CCTYPE.Coin);
+
         var coin = Instantiate(_coinsPrefab, _spawnCoinsPoint.position, Quaternion.identity);
         
         GameManager.Instance.AddMoney(Random.Range(1, 11));

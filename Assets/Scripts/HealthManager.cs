@@ -34,6 +34,8 @@ public class HealthManager : MonoBehaviour
 
     private void Die()
     {
+        UIManager.Instance.CCSFX(CCTYPE.Destroy);
+
         _die = true;
         
         LvlStatus.Instance.ProgressLvl();

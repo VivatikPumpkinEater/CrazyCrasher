@@ -17,12 +17,14 @@ public struct LengthLvl
     public CrasherController Crasher;
     public int CostUpgrade;
 }
+
 [System.Serializable]
 public struct FuelLvl
 {
     public float Volume;
     public int CostUpgrade;
 }
+
 [System.Serializable]
 public struct PowerLvl
 {
@@ -30,6 +32,7 @@ public struct PowerLvl
     public int Damage;
     public int CostUpgrade;
 }
+
 [System.Serializable]
 public struct SizeLvl
 {
