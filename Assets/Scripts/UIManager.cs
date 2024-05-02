@@ -197,11 +197,11 @@ public class UIManager : MonoBehaviour
         {
             float moneyf = money / 1000f;
 
-            _walletTxt.text = moneyf.ToString("#.#") + "k$";
+            _walletTxt.text = moneyf.ToString("#.#") + "k";
         }
         else
         {
-            _walletTxt.text = money.ToString() + "$";
+            _walletTxt.text = money.ToString();
         }
     }
 

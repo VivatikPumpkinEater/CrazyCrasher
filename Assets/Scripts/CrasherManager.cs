@@ -43,8 +43,6 @@ public class CrasherManager : MonoBehaviour
         InitializeButtons();
 
         SpawnCrasherAtSAve();
-
-        // InitializedCost();
     }
 
     public void CCRESETSave()
@@ -67,14 +65,6 @@ public class CrasherManager : MonoBehaviour
         _upgradeButtons.UpgradeFuel.onClick.AddListener(() => Upgrade(UpgradeType.Fuel));
         _upgradeButtons.UpgradePower.onClick.AddListener(() => Upgrade(UpgradeType.Power));
         _upgradeButtons.UpgradeSize.onClick.AddListener(() => Upgrade(UpgradeType.Size));
-    }
-
-    private void InitializedCost()
-    {
-        _upgradeButtons.CostLength.text = _upgradeInfo.LengthLvls[_lengthLvl].CostUpgrade.ToString() + "$";
-        _upgradeButtons.CostFuel.text = _upgradeInfo.FuelLvls[_fuelLvl].CostUpgrade.ToString() + "$";
-        _upgradeButtons.CostPower.text = _upgradeInfo.PowerLvls[_powerLvl].CostUpgrade.ToString() + "$";
-        _upgradeButtons.CostSize.text = _upgradeInfo.SizeLvls[_sizeLvl].CostUpgrade.ToString() + "$";
     }
 
     private void StartGame()
@@ -125,7 +115,7 @@ public class CrasherManager : MonoBehaviour
         }
         else
         {
-            _upgradeButtons.CostSize.text = _upgradeInfo.SizeLvls[_sizeLvl].CostUpgrade.ToString() + "$";
+            _upgradeButtons.CostSize.text = _upgradeInfo.SizeLvls[_sizeLvl].CostUpgrade.ToString();
         }
     }
 
@@ -149,7 +139,7 @@ public class CrasherManager : MonoBehaviour
         }
         else
         {
-            _upgradeButtons.CostFuel.text = _upgradeInfo.FuelLvls[_fuelLvl].CostUpgrade.ToString() + "$";
+            _upgradeButtons.CostFuel.text = _upgradeInfo.FuelLvls[_fuelLvl].CostUpgrade.ToString();
         }
     }
 
@@ -172,7 +162,7 @@ public class CrasherManager : MonoBehaviour
         }
         else
         {
-            _upgradeButtons.CostPower.text = _upgradeInfo.PowerLvls[_powerLvl].CostUpgrade.ToString() + "$";
+            _upgradeButtons.CostPower.text = _upgradeInfo.PowerLvls[_powerLvl].CostUpgrade.ToString();
         }
     }
 
@@ -193,7 +183,7 @@ public class CrasherManager : MonoBehaviour
         }
         else
         {
-            _upgradeButtons.CostLength.text = _upgradeInfo.LengthLvls[_lengthLvl].CostUpgrade.ToString() + "$";
+            _upgradeButtons.CostLength.text = _upgradeInfo.LengthLvls[_lengthLvl].CostUpgrade.ToString();
         }
     }
 
@@ -222,37 +212,45 @@ public class CrasherManager : MonoBehaviour
 
     private void SpawnCrasherAtSAve()
     {
+        var lengthLvl = _lengthLvl;
+        var fuelLvl = _fuelLvl;
+        var powerLvl = _powerLvl;
+        var sizeLvl = _sizeLvl;
+        
         if (_sizeLvl == _upgradeInfo.SizeLvls.Count)
         {
             _upgradeButtons.UpgradeSize.interactable = false;
 
+            sizeLvl--;
             _upgradeButtons.CostSize.text = "Max Lvl";
         }
         else
         {
-            _upgradeButtons.CostSize.text = _upgradeInfo.SizeLvls[_sizeLvl].CostUpgrade.ToString() + "$";
+            _upgradeButtons.CostSize.text = _upgradeInfo.SizeLvls[_sizeLvl].CostUpgrade.ToString();
         }
         
         if (_powerLvl == _upgradeInfo.PowerLvls.Count)
         {
             _upgradeButtons.UpgradePower.interactable = false;
 
+            powerLvl--;
             _upgradeButtons.CostPower.text = "Max Lvl";
         }
         else
         {
-            _upgradeButtons.CostPower.text = _upgradeInfo.PowerLvls[_powerLvl].CostUpgrade.ToString() + "$";
+            _upgradeButtons.CostPower.text = _upgradeInfo.PowerLvls[_powerLvl].CostUpgrade.ToString();
         }
         
         if (_fuelLvl == _upgradeInfo.FuelLvls.Count)
         {
             _upgradeButtons.UpgradeFuel.interactable = false;
 
+            fuelLvl--;
             _upgradeButtons.CostFuel.text = "Max Lvl";
         }
         else
         {
-            _upgradeButtons.CostFuel.text = _upgradeInfo.FuelLvls[_fuelLvl].CostUpgrade.ToString() + "$";
+            _upgradeButtons.CostFuel.text = _upgradeInfo.FuelLvls[_fuelLvl].CostUpgrade.ToString();
         }
         
         if (_currentCrasher != null)
@@ -278,18 +276,19 @@ public class CrasherManager : MonoBehaviour
         {
             _upgradeButtons.UpgradeLength.interactable = false;
 
+            lengthLvl--;
             _upgradeButtons.CostLength.text = "Max Lvl";
         }
         else
         {
-            _upgradeButtons.CostLength.text = _upgradeInfo.LengthLvls[lenght].CostUpgrade.ToString() + "$";
+            _upgradeButtons.CostLength.text = _upgradeInfo.LengthLvls[lenght].CostUpgrade.ToString();
         }
         
         _lengthLvl = lenght;
         
-        _saw.transform.DOScale(_saw.transform.localScale + _upgradeInfo.SizeLvls[_sizeLvl].StepSize, 0.2f);
-        _fuel.SetFuel(_upgradeInfo.FuelLvls[_fuelLvl].Volume);
-        _saw.LevelUp(_upgradeInfo.PowerLvls[_powerLvl].SpeedMotor, _upgradeInfo.PowerLvls[_powerLvl].Damage);
+        _saw.transform.DOScale(_saw.transform.localScale + _upgradeInfo.SizeLvls[sizeLvl].StepSize, 0.2f);
+        _fuel.SetFuel(_upgradeInfo.FuelLvls[fuelLvl].Volume);
+        _saw.LevelUp(_upgradeInfo.PowerLvls[powerLvl].SpeedMotor, _upgradeInfo.PowerLvls[powerLvl].Damage);
     }
     
     private void OnApplicationQuit()

@@ -15,6 +15,6 @@ public class UIGameOver : MonoBehaviour
     {
         _fuelOut.SetActive(gameOver);
 
-        _moneySession.text ="+" + moneySession.ToString() + "$";
+        _moneySession.text ="+" + moneySession.ToString();
     }
 }
